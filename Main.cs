@@ -21,3 +21,29 @@ namespace Statu100ST
         }
 
         public override void OnPluginInit()
+        {
+            base.OnPluginInit();
+            AAMenu.Menu.AddBizTabLine(PluginInformations, new List<Life.BizSystem.Activity.Type> { Activity.Type.None }, null, $"{Format.Color("Ouvrir", Format.Colors.Success)} {Format.Color("/", Format.Colors.Grey)} {Format.Color("Fermer", Format.Colors.Error)}", aaMenu =>
+            {
+                var player = PanelHelper.ReturnPlayerFromPanel(aaMenu);
+                if (Status.ContainsKey(player.biz.Id))
+                {
+                    if (Status[player.biz.Id] == true)
+                    {
+                        SendClose(player.biz.BizName);
+                        player.Notify(Format.Color("Succès", Format.Colors.Success), "Vous avez fermé l'entreprise", NotificationManager.Type.Success);
+                        Status.Remove(player.biz.Id);
+                    }
+                }
+                else
+                {
+                    Status.Add(player.biz.Id, true);
+                    SendOpen(player.biz.BizName);
+                    player.Notify(Format.Color("Succès", Format.Colors.Success), "Vous avez ouvert l'entreprise", NotificationManager.Type.Success);
+                }
+            });
+            AAMenu.Menu.AddDocumentTabLine(PluginInformations, Format.Color("Annuaire des Entreprises", Format.Colors.Purple), aaMenu =>
+            {
+                var player = PanelHelper.ReturnPlayerFromPanel(aaMenu);
+                OpenMenu(player);
+            });
