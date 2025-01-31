@@ -14,7 +14,7 @@
 - **ModKit **est une *dépendence* pour ce Plugin.
 
 # 🧼️ ***Téléchargement***
-**[Dernière version du Status100](https://github.com/cole100st/Salaire100/releases/tag/Salaire100)**
+**[Dernière version du Status100](https://github.com/cole100st/Status100/releases/tag/Status100)**
 
 # :feather: ***Contact***
 Si vous avez un *problème*, des *questions* ou des *suggestions*, je suis disponible en **MP** (*cole100st*).
